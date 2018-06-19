@@ -1,6 +1,6 @@
 ## Hello Graal
 
-```
+```java
 mkdir -p src/hello classes
 cat <<EOF > src/hello/HelloWorld.java
 package hello;
@@ -16,7 +16,7 @@ EOF
 ### Compile with Graal compiler
 
 
-```
+```bash
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
@@ -26,14 +26,14 @@ docker run --rm \
 
 Write once, run anywhere :)
 
-```
+```bash
 $ java -cp classes hello.HelloWorld
 Hello World!
 ```
 
 create a jar file
 
-```
+```bash
 cat <<EOF > hello.mf
 Main-Class: hello.HelloWorld
 EOF
@@ -47,7 +47,7 @@ docker run --rm \
 
 Write once, run anywhere :)
 
-```
+```bash
 $ java -jar hello.jar 
 Hello World!
 ```
@@ -55,7 +55,7 @@ Hello World!
 ### Create a native image from class files
 
 
-```
+```bash
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
@@ -65,7 +65,7 @@ docker run --rm \
 
 Run on a container (can not on Mac)
 
-```
+```bash
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
@@ -76,7 +76,7 @@ Hello World!
 
 This executable binary is dynamically linked
 
-```
+```bash
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
@@ -91,7 +91,7 @@ $ docker run --rm \
 
 You can create statically linkded binary with `--static` option
 
-```
+```bash
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
@@ -99,7 +99,7 @@ docker run --rm \
            native-image --no-server --static -cp ./classes hello.HelloWorld
 ```
 
-```
+```bash
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
@@ -108,7 +108,7 @@ $ docker run --rm \
 Hello World!
 ```
 
-```
+```bash
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
@@ -119,7 +119,7 @@ $ docker run --rm \
 ### Create a native image from the jar file
 
 
-```
+```bash
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
@@ -128,7 +128,7 @@ docker run --rm \
 ```
 
 
-```
+```bash
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
@@ -139,7 +139,7 @@ Hello World!
 
 ### Build a http server
 
-```
+```java
 cat <<EOF > src/hello/HelloHttp.java
 package hello;
 
@@ -185,7 +185,7 @@ docker run --rm -p 8080:8080 \
            ./hello.hellohttp
 ```
 
-```
+```bash
 $ curl localhost:8080
 
 Hello World!
@@ -193,13 +193,13 @@ Hello World!
 
 Stop the application
 
-```
+```bash
 docker stop `docker ps | grep 'making/graal:1.0.0-rc2' | awk '{print $1}'`
 ```
 
 ### Deploy to Cloud Foundry
 
-```
+```bash
 mkdir tmp
 cp hello.hellohttp tmp/
 cf push hello-graal --random-route -m 16m -b binary_buildpack -p ./tmp -c './hello.hellohttp'
