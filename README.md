@@ -165,7 +165,9 @@ public class HelloHttp {
     }
 }
 EOF
+```
 
+```bash
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
