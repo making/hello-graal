@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 
-ENV GRAAL_VERSION 1.0.0-rc2
+ENV GRAAL_VERSION 1.0.0-rc4
 
 RUN apt-get update && \
   apt-get install -y \
