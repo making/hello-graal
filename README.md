@@ -211,31 +211,30 @@ cf push hello-graal --random-route -m 16m -b binary_buildpack -p ./tmp -c './hel
 
 
 ```
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] Exception in thread "main" java.lang.reflect.InvocationTargetException
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.lang.Throwable.<init>(Throwable.java:310)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.lang.Exception.<init>(Exception.java:102)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.lang.ReflectiveOperationException.<init>(ReflectiveOperationException.java:89)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.lang.reflect.InvocationTargetException.<init>(InvocationTargetException.java:72)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at com.oracle.svm.reflect.proxies.Proxy_1_HelloHttp_main.invoke(Unknown Source)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.lang.reflect.Method.invoke(Method.java:498)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at com.oracle.svm.core.JavaMainWrapper.run(JavaMainWrapper.java:173)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] Caused by: java.net.SocketException: NioSocketError
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.lang.Throwable.<init>(Throwable.java:265)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.lang.Exception.<init>(Exception.java:66)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.io.IOException.<init>(IOException.java:58)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.net.SocketException.<init>(SocketException.java:47)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at com.oracle.svm.core.posix.PosixJavaNIOSubstitutions$Util_sun_nio_ch_Net.handleSocketError(PosixJavaNIOSubstitutions.java:1284)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at com.oracle.svm.core.posix.PosixJavaNIOSubstitutions$Target_sun_nio_ch_Net.socket0(PosixJavaNIOSubstitutions.java:766)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at sun.nio.ch.Net.serverSocket(Net.java:415)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at sun.nio.ch.ServerSocketChannelImpl.<init>(ServerSocketChannelImpl.java:88)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at sun.nio.ch.SelectorProviderImpl.openServerSocketChannel(SelectorProviderImpl.java:56)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at java.nio.channels.ServerSocketChannel.open(ServerSocketChannel.java:108)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at sun.net.httpserver.ServerImpl.<init>(ServerImpl.java:97)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at sun.net.httpserver.HttpServerImpl.<init>(HttpServerImpl.java:50)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at sun.net.httpserver.DefaultHttpServerProvider.createHttpServer(DefaultHttpServerProvider.java:35)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at com.sun.net.httpserver.HttpServer.create(HttpServer.java:130)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] at hello.HelloHttp.main(HelloHttp.java:11)
-2018-06-19T17:21:55.274+09:00 [APP/PROC/WEB/0] [ERR] ... 3 more
-2018-06-19T17:21:55.278+09:00 [APP/PROC/WEB/0] [OUT] Exit status 0
+2019-04-21T23:59:38.56+0900 [API/14] OUT Creating build for app with guid 93552394-fdd0-4afa-814b-3206e7522321
+2019-04-21T23:59:39.29+0900 [STG/0] OUT Downloading binary_buildpack...
+2019-04-21T23:59:39.16+0900 [API/14] OUT Updated app with guid 93552394-fdd0-4afa-814b-3206e7522321 ({"state"=>"STARTED"})
+2019-04-21T23:59:39.38+0900 [STG/0] OUT Downloaded binary_buildpack
+2019-04-21T23:59:39.38+0900 [STG/0] OUT Cell eeecc2c0-519a-4d6c-ad9b-e8239542f23f creating container for instance f42fe38a-2896-47c6-be10-85a0dbc28810
+2019-04-21T23:59:39.86+0900 [STG/0] OUT Cell eeecc2c0-519a-4d6c-ad9b-e8239542f23f successfully created container for instance f42fe38a-2896-47c6-be10-85a0dbc28810
+2019-04-21T23:59:40.08+0900 [STG/0] OUT Downloading app package...
+2019-04-21T23:59:40.35+0900 [STG/0] OUT Downloaded app package (3.1M)
+2019-04-21T23:59:40.44+0900 [STG/0] OUT -----> Binary Buildpack version 1.0.31
+2019-04-21T23:59:41.09+0900 [STG/0] OUT Exit status 0
+2019-04-21T23:59:41.09+0900 [STG/0] OUT Uploading droplet, build artifacts cache...
+2019-04-21T23:59:41.09+0900 [STG/0] OUT Uploading droplet...
+2019-04-21T23:59:41.09+0900 [STG/0] OUT Uploading build artifacts cache...
+2019-04-21T23:59:41.18+0900 [STG/0] OUT Uploaded build artifacts cache (215B)
+2019-04-21T23:59:41.22+0900 [API/7] OUT Creating droplet for app with guid 93552394-fdd0-4afa-814b-3206e7522321
+2019-04-21T23:59:42.29+0900 [STG/0] OUT Uploaded droplet (3.1M)
+2019-04-21T23:59:42.29+0900 [STG/0] OUT Uploading complete
+2019-04-21T23:59:42.55+0900 [STG/0] OUT Cell eeecc2c0-519a-4d6c-ad9b-e8239542f23f stopping instance f42fe38a-2896-47c6-be10-85a0dbc28810
+2019-04-21T23:59:42.55+0900 [STG/0] OUT Cell eeecc2c0-519a-4d6c-ad9b-e8239542f23f destroying container for instance f42fe38a-2896-47c6-be10-85a0dbc28810
+2019-04-21T23:59:42.95+0900 [STG/0] OUT Cell eeecc2c0-519a-4d6c-ad9b-e8239542f23f successfully destroyed container for instance f42fe38a-2896-47c6-be10-85a0dbc28810
+2019-04-21T23:59:43.00+0900 [CELL/0] OUT Cell eeecc2c0-519a-4d6c-ad9b-e8239542f23f creating container for instance d15ab3f4-c453-437f-446f-28a1
+2019-04-21T23:59:43.50+0900 [CELL/0] OUT Cell eeecc2c0-519a-4d6c-ad9b-e8239542f23f successfully created container for instance d15ab3f4-c453-437f-446f-28a1
+2019-04-21T23:59:44.17+0900 [CELL/0] OUT Starting health monitoring of container
+2019-04-21T23:59:44.51+0900 [APP/PROC/WEB/0] OUT Started in 0.420449 [ms]
+2019-04-21T23:59:44.81+0900 [CELL/0] OUT Container became healthy
 ```
 
