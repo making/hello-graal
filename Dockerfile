@@ -1,6 +1,6 @@
-FROM ubuntu:trusty
+FROM ubuntu:bionic
 
-ENV GRAAL_VERSION 1.0.0-rc4
+ENV GRAAL_VERSION 1.0.0-rc15
 
 RUN apt-get update && \
   apt-get install -y \
