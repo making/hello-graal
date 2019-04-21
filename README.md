@@ -20,7 +20,7 @@ EOF
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            javac -sourcepath src -d classes src/hello/HelloWorld.java
 ```
 
@@ -41,7 +41,7 @@ EOF
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            jar -cvmf hello.mf hello.jar -C classes .
 ```
 
@@ -59,7 +59,7 @@ Hello World!
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            native-image --no-server -cp ./classes hello.HelloWorld
 ```
 
@@ -69,7 +69,7 @@ Run on a container (can not on Mac)
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            ./hello.helloworld
 Hello World!
 ```
@@ -80,7 +80,7 @@ This executable binary is dynamically linked
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            ldd ./hello.helloworld
 	linux-vdso.so.1 =>  (0x00007ffe8dbfa000)
 	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007fab55832000)
@@ -95,7 +95,7 @@ You can create statically linkded binary with `--static` option
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            native-image --no-server --static -cp ./classes hello.HelloWorld
 ```
 
@@ -103,7 +103,7 @@ docker run --rm \
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            ./hello.helloworld
 Hello World!
 ```
@@ -112,7 +112,7 @@ Hello World!
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            ldd ./hello.helloworld
 	not a dynamic executable
 ```
@@ -123,7 +123,7 @@ $ docker run --rm \
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            native-image --no-server --static -jar hello.jar
 ```
 
@@ -132,7 +132,7 @@ docker run --rm \
 $ docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            ./hello
 Hello World!
 ```
@@ -171,19 +171,19 @@ EOF
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            javac -sourcepath src -d classes src/hello/HelloHttp.java
 
 docker run --rm \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            native-image --no-server --static -cp ./classes hello.HelloHttp
 
 docker run --rm -p 8080:8080 \
            -v "$PWD":/usr/src \
            -w /usr/src \
-           making/graal:1.0.0-rc15 \
+           oracle/graalvm-ce:1.0.0-rc15 \
            ./hello.hellohttp
 ```
 
@@ -196,7 +196,7 @@ Hello World!
 Stop the application
 
 ```bash
-docker stop `docker ps | grep 'making/graal:1.0.0-rc15' | awk '{print $1}'`
+docker stop `docker ps | grep 'oracle/graalvm-ce:1.0.0-rc15' | awk '{print $1}'`
 ```
 
 ### Deploy to Cloud Foundry
