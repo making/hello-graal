@@ -207,7 +207,7 @@ cp hello.hellohttp tmp/
 cf push hello-graal --random-route -m 16m -b binary_buildpack -p ./tmp -c './hello.hellohttp'
 ```
 
-`cf push` fails with the following error...
+`cf push` just works!
 
 
 ```
